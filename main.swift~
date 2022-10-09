@@ -1,0 +1,46 @@
+//1.  Edit the file named "main.swift"
+//2.  Define a function named swap which accepts three parameters:
+//    	   * A parameter named 'integers', a modifiable array of Int
+//	   * A parameter named 'firstIndex', an Int
+//	   * A parameter named 'secondIndex', an Int
+//    The function must swap the values contained in the array at the index
+ //   specified by 'firstIndex' with the value contained in the array at the
+//    index specified by 'secondIndex'
+//3.  Sort an array of integers using the Bubble Sort algorithm.
+//    If a swap of elements is required, use the swap function which you defined abov//e.
+//4.  The output should be as follows:
+//    Pass: <p>, Swaps: <pass swap count>/<total swap count>, Array: [<comma-delimitt//ed array contents>]
+//    For example:
+//        Pass: 0, Swaps: 0/0, Array: [5, 1, 4, 2, 8]
+//    	Pass: 1, Swaps: 3/3, Array: [1, 4, 2, 5, 8]
+// ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩
+// DO NOT ALTER THE TEXT BETWEEN THESE LINES =========={M{E{R{L{I{N{1}N}I}L}R}E}M}=====================================
+let unsortedIntegers = [5, 1, 4, 2, 8]
+// DO NOT ALTER THE TEXT BETWEEN THESE LINES =========={M{E{R{L{I{N{1}N}I}L}R}E}M}=====================================
+// ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧
+
+
+// Add your code below:
+
+var integers:[Int]=unsortedIntegers
+
+func swap(integers: inout [Int], firstIndex: Int, secondIndex: Int) {
+    var swapCount : Int=0, swapTotal : Int=0
+    for passCount in 0...integers.count {
+        for value in 1...integers.count-1 where passCount != 0 {
+            if integers[value-1] > integers[value] {
+                let biggerValue=integers[value-1]
+                integers[value-1]=integers[value]
+                integers[value]=biggerValue
+                swapCount+=1
+            }
+        }
+        swapTotal+=swapCount
+        print("Pass: \(passCount), Swaps: \(swapCount)/\(swapTotal), Array: \(integers)")
+        if (swapCount==0) && (passCount != 0) {
+            break;
+        }
+        swapCount=0
+    }
+}
+swap(integers: &integers, firstIndex: 0, secondIndex: 0)
